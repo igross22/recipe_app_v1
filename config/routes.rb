@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   #Backup
-  root "devise/sessions#new"
+
+  root "recipes#index"
 
   # Routes for the Recipe resource:
   # CREATE

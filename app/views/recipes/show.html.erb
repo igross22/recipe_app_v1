@@ -21,7 +21,7 @@
       <dd><%= @recipe.source_url %></dd>
 
     </dl>
-     <dt>Ingredients</dt>
+     <dt>Ingredients (qty)</dt>
       <dd>
         <ul class="list-group">
           <% @recipe.quantities.each do |ingredient| %>
@@ -39,7 +39,7 @@
             <label for="title" class="control-label">
               Quantity
             </label>
-            <input type="text" id="title" name="quantity" placeholder="Title" class="form-control">
+            <input type="text" id="title" name="quantity" placeholder="Enter amount" class="form-control">
           </div>
 
           <!-- Label and input for ingredient -->
@@ -54,7 +54,7 @@
           <input name="recipe_id" type="hidden" value="<%= @recipe.id %>">
 
           <button class="btn btn-success">
-            Create Recipe
+            Add ingredient
           </button>
           or
           <a href="/recipes">Cancel</a>
