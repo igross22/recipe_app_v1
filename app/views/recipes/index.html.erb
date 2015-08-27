@@ -1,0 +1,63 @@
+<head>
+    <style>
+    /* Only necessary if you are using navbar-fixed-top */
+    body {
+      padding-top: 100px;
+    }
+  </style>
+</head>
+
+<div class="page-header">
+  <h1>
+    Recipes
+    <a href="/recipes/new" class="btn btn-lg btn-success">New Recipe</a>
+  </h1>
+
+      <%= search_form_for @q do |f| %>
+      <p class="lead">Narrow results:</p>
+
+     <div class="form-group">
+        <%= f.label :ingredient_name_cont %>
+        <%= f.select :ingredient_name_eq, options_from_collection_for_select(Ingredient.all, :id, :name, @q.ingredient_name_eq), { :include_blank => true }, :class => "form-control" %>
+    </div>
+
+      <%= f.submit :class => "btn btn-primary btn-block" %>
+
+        <a href="/search/new" class="btn btn-default btn-block">Clear filters</a>
+    <% end %>
+
+
+    <%#= content_tag :table do %>
+    <%#= content_tag :th, sort_link(@ingredient, :recipe_name) %>
+
+    <%# end %>
+
+    <% @recipes.each do |recipe| %>
+      <div class="row well">
+        <div class="col-sm-3">
+          <h3><span class="label label-primary"><%= recipe.name %></span></h3>
+        </div>
+        <div class="col-sm-2 col-md-2">
+          <p><%= recipe.cuisine_type %></p>
+        </div>
+        <div class="col-sm-2">
+          <p><%= recipe.cooking_method %></p>
+        </div>
+        <div class="col-sm-2">
+          <p><%= recipe.cooking_time %></p>
+        </div>
+        <div class="col-sm-1">
+          <a href="/recipes/<%= recipe.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i></a>
+        </div>
+        <div class="col-sm-1">
+          <a href="/recipes/<%= recipe.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i></a>
+        </div>
+        <div class="col-sm-1">
+          <a href="/delete_recipe/<%= recipe.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i></a>
+        </div>
+      </div>
+    <% end %>
+</div>

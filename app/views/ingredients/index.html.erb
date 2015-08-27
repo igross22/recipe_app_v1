@@ -1,0 +1,36 @@
+<head>
+    <style>
+    /* Only necessary if you are using navbar-fixed-top */
+    body {
+      padding-top: 200px;
+    }
+  </style>
+</head>
+
+<div class="page-header">
+  <h1>
+    Ingredients
+    <a href="/ingredients/new" class="btn btn-lg btn-success">New Ingredient</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+      </tr>
+
+      <% @ingredient.each do |ingredient| %>
+      <tr>
+        <td><%= ingredient.name %></td>
+        <td>
+          <a href="/recipes/<%= ingredient.id %>" class="btn btn-primary">Show</a>
+          <a href="/ingredients/<%= ingredient.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_ingredient/<%= ingredient.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

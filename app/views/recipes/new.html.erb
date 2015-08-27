@@ -1,0 +1,58 @@
+<div class="page-header">
+  <h3>Add Recipe</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_recipe" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+        <input type="text" id="title" name="name" placeholder="Name" class="form-control" value="<%= @recipe.name %>">
+      </div>
+
+      <!-- Label and input for cuisine_type -->
+      <div class="form-group">
+        <label for="cuisine_type" class="control-label">
+          Cuisine type
+        </label>
+        <input type="text" id="cuisine_type" name="cuisine_type" placeholder="Cuisine type" class="form-control" value="<%= @recipe.cuisine_type %>">
+      </div>
+
+      <!-- Label and input for cooking_method -->
+      <div class="form-group">
+        <label for="cooking_method" class="control-label">
+          Cooking method
+        </label>
+        <input type="text" id="cooking_method" name="cooking_method" placeholder="How do you cook it (e.g. bake, boil, etc.)?" class="form-control" value="<%= @recipe.cooking_method %>">
+      </div>
+
+      <!-- Label and input for cooking_time -->
+      <div class="form-group">
+        <label for="cooking_time" class="control-label">
+          Cooking Time
+        </label>
+        <input type="text" id="cooking_time" name="cooking_time" placeholder="# of minutes?" class="form-control"><%= @recipe.cooking_time %>
+      </div>
+
+      <!-- Label and input for source_url -->
+      <div class="form-group">
+        <label for="source_url" class="control-label">
+          Source URL
+        </label>
+        <input type="text" id="source_url" name="source_url" placeholder="Image url" class="form-control" value="<%= @recipe.source_url %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Recipe
+      </button>
+      or
+      <a href="/recipes">Cancel</a>
+    </form>
+  </div>
+</div>

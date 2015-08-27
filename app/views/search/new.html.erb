@@ -1,0 +1,31 @@
+<head>
+    <style>
+    /* Only necessary if you are using navbar-fixed-top */
+    body {
+      padding-top: 100px;
+    }
+  </style>
+</head>
+<body>
+
+
+
+    <%= search_form_for @q do |f| %>
+      <p class="lead">Narrow results:</p>
+
+     <div class="form-group">
+        <%= f.label :ingredient_name_cont %>
+        <%= f.text_field :ingredient_name_cont, :class => "form-control" %>
+      </div>
+
+
+      <%= f.submit :class => "btn btn-primary btn-block" %>
+
+        <a href="/search/new" class="btn btn-default btn-block">Clear filters</a>
+    <% end %>
+
+    <%= content_tag :table do %>
+      <%= content_tag :th, sort_link(@q, :recipe_name) %>
+
+    <% end %>
+</body>
