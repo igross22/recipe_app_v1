@@ -12,7 +12,6 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @quantity = Quantity.new
   end
 
   def create
@@ -23,11 +22,8 @@ class RecipesController < ApplicationController
     @recipe.cooking_time = params[:cooking_time]
     @recipe.source_url = params[:source_url]
 
-
-    #will have to add ingredients later
-
     if @recipe.save
-      redirect_to :back, :notice => "Recipe created successfully."
+       redirect_to "/recipes", :notice => "Recipe created."
     else
       render 'new'
     end

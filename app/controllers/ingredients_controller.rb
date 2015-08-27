@@ -16,7 +16,7 @@ def index
     #will have to add ingredients later
 
     if @ingredient.save
-      redirect_to :back, :notice => "Recipe created successfully."
+      redirect_to :back, :notice => "Ingredient created successfully."
     else
       render 'new'
     end

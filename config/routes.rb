@@ -21,33 +21,6 @@ Rails.application.routes.draw do
   # DELETE
   get "/delete_recipe/:id", :controller => "recipes", :action => "destroy"
 
-  # Routes for the Search resource:
-
-  # CREATE
-  get "/search", :controller => "search", :action => "new"
-
-  # READ
-  get "/search_results", :controller => "search", :action => "run"
-
-  # Routes for the Cuisine resource:
-
-  #To do: Figure this out later
-
-  # CREATE
-  get "/cuisines/new", :controller => "cuisines", :action => "new"
-  post "/create_cuisine", :controller => "cuisines", :action => "create"
-
-  # READ
-  get "/cuisines", :controller => "cuisines", :action => "index"
-  get "/cuisines/:id", :controller => "cuisines", :action => "show"
-
-  # UPDATE
-  get "/cuisines/:id/edit", :controller => "cuisines", :action => "edit"
-  post "/update_cuisine/:id", :controller => "cuisines", :action => "update"
-
-  # DELETE
-  get "/delete_recipe/:id", :controller => "cuisines", :action => "destroy"
-
   #Routes for quantity table. Revise later:
 
   # CREATE
@@ -64,6 +37,10 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_quantity/:id", :controller => "quantity", :action => "destroy"
+
+  # Routes for grocery resource
+
+  get "/groceries", :controller => "groceries", :action => "index"
 
   # Routes for the temporary ingredient resource. Delete later:
 
