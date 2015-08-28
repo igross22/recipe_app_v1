@@ -8,10 +8,15 @@ class RecipesController < ApplicationController
     #@q = Recipe.ransack(params[:q])
     #@search = @q.result(:distinct => true)
 
+    #@q = Quantity.ransack(params[:q])
+    #@search = @q.result(:distinct => true).includes(:ingredient, :recipe)
+
     #backup for search function
     @q = Recipe.ransack(params[:q])
     @search = @q.result(:distinct => true)
     @q.build_condition
+
+
   end
 
   def new
