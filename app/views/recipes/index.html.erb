@@ -16,8 +16,8 @@
       <%= search_form_for @q do |f| %>
 
      <div class="form-group">
-        <%= f.label :ingredient_name_cont %>
-        <%= f.select :ingredient_name_eq, options_from_collection_for_select(Ingredient.all, :id, :name, @q.ingredient_name_eq), { :include_blank => true }, :class => "form-control" %>
+        <%= f.label :name_cont %>
+        <%= f.text_field :name_cont %>
     </div>
 
       <%= f.submit :class => "btn btn-primary btn-block" %>
@@ -33,7 +33,7 @@
 
     </div>
 
-<% @recipes.each do |recipe| %>
+<% @search.each do |recipe| %>
  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">

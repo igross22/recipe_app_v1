@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   root "recipes#index"
 
   # Routes for the Recipe resource:
+
+   # DELETE
+  get "/delete_recipe/:id", :controller => "recipes", :action => "destroy"
+
   # CREATE
   get "/recipes/new", :controller => "recipes", :action => "new"
   post "/create_recipe", :controller => "recipes", :action => "create"
@@ -18,8 +22,6 @@ Rails.application.routes.draw do
   get "/recipes/:id/edit", :controller => "recipes", :action => "edit"
   post "/update_recipe/:id", :controller => "recipes", :action => "update"
 
-  # DELETE
-  get "/delete_recipe/:id", :controller => "recipes", :action => "destroy"
 
   #Routes for quantity table. Revise later:
 
@@ -40,7 +42,7 @@ Rails.application.routes.draw do
 
   # Routes for grocery resource
 
-  get "/groceries", :controller => "groceries", :action => "index"
+  get "/groceries", :controller => "grocery", :action => "index"
 
   # Routes for the temporary ingredient resource. Delete later:
 

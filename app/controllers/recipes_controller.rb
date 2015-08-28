@@ -2,11 +2,15 @@ class RecipesController < ApplicationController
 
   def index
     #original
-    @recipes = Recipe.all
+    #@recipes = Recipe.all
 
-    #for search function
-    @q = Quantity.ransack(params[:q])
-    @ingredient = @q.result(:distinct => true).includes(:ingredient, :recipe)
+    # test for new search function
+    @q = Recipe.ransack(params[:q])
+    @search = @q.result(:distinct => true)
+
+    #backup for search function
+    #@q = Quantity.ransack(params[:q])
+    #@ingredient = @q.result(:distinct => true).includes(:ingredient, :recipe)
 
   end
 
