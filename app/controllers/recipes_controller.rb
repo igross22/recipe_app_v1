@@ -5,13 +5,13 @@ class RecipesController < ApplicationController
     #@recipes = Recipe.all
 
     # test for new search function
-    @q = Recipe.ransack(params[:q])
-    @search = @q.result(:distinct => true)
+    #@q = Recipe.ransack(params[:q])
+    #@search = @q.result(:distinct => true)
 
     #backup for search function
-    #@q = Quantity.ransack(params[:q])
-    #@ingredient = @q.result(:distinct => true).includes(:ingredient, :recipe)
-
+    @q = Recipe.ransack(params[:q])
+    @search = @q.result(:distinct => true)
+    @q.build_condition
   end
 
   def new
